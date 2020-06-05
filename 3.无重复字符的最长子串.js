@@ -36,8 +36,8 @@ var lengthOfLongestSubstring = function(s) {
     if (length > maxLength) {
         maxLength = length;
     }
-
-    return maxLength;
+  
+    return maxLength
 };
 // @lc code=end
 
