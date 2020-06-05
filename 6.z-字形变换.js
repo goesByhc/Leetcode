@@ -10,7 +10,9 @@
  * @param {number} numRows
  * @return {string}
  */
-var convert = function(s, numRows) {
+
+
+var convert1 = function(s, numRows) {
     var arr = [];
     var columnsWithRows = Math.max(0, numRows - 2); //中间有多少排
     var countInGroup = numRows + columnsWithRows;//每一组有多少个
@@ -55,6 +57,32 @@ var convert = function(s, numRows) {
     return str;
 
 };
+
+var convert = function(s, numRows) {
+    if (numRows == 1) {
+        return s;
+    }
+    let arrs = [];
+    for(let i = 0; i < numRows; i++) {
+        arrs[i] = "";
+    }
+
+    let pos = 0, flag = 1;
+    for(let i = 0; i < s.length; i++) {
+
+        arrs[pos] += s.charAt(i);
+        if (pos + flag < 0 || pos + flag >= numRows) {
+            flag = -flag;
+        }
+        pos += flag
+    }
+    let str = ""
+    for(let i = 0; i < numRows; i++) {
+        str += arrs[i];
+    }
+    return str;
+};
+
 
 
 // console.log(convert("LEETCODEISHIRING21", 4));
