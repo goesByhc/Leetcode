@@ -62,22 +62,22 @@ var convert = function(s, numRows) {
     if (numRows == 1) {
         return s;
     }
-    let arrs = [];
-    for(let i = 0; i < numRows; i++) {
+    let arrs = [], i
+    for(i = 0; i < numRows; i++) {
         arrs[i] = "";
     }
 
-    let pos = 0, flag = 1;
-    for(let i = 0; i < s.length; i++) {
+    var pos = 0, flag = 1; //pos为寸到哪一行的字符串，flag控制方向
+    for(i = 0; i < s.length; i++) {
 
         arrs[pos] += s.charAt(i);
-        if (pos + flag < 0 || pos + flag >= numRows) {
+        if (pos + flag < 0 || pos + flag >= numRows) {//越界变向
             flag = -flag;
         }
         pos += flag
     }
-    let str = ""
-    for(let i = 0; i < numRows; i++) {
+    var str = ""
+    for(i = 0; i < numRows; i++) {
         str += arrs[i];
     }
     return str;
